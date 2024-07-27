@@ -10,7 +10,7 @@ const Register = () => {
                 <hr />
                 <div class="row my-4 h-100">
                     <div className="col-md-4 col-lg-4 col-sm-8 mx-auto">
-                        <form>
+                        <form className="bg-light p-4 rounded">
                             <div class="form my-3">
                                 <label for="Name">Full Name</label>
                                 <input
@@ -26,7 +26,7 @@ const Register = () => {
                                     type="email"
                                     class="form-control"
                                     id="Email"
-                                    placeholder="name@example.com"
+                                    placeholder="email"
                                 />
                             </div>
                             <div class="form  my-3">
@@ -35,14 +35,23 @@ const Register = () => {
                                     type="password"
                                     class="form-control"
                                     id="Password"
-                                    placeholder="Password"
+                                    placeholder="Enter your Password"
+                                />
+                            </div>
+                            <div class="form  my-3">
+                                <label for="Password">Phone Number</label>
+                                <input
+                                    type="text"
+                                    class="form-control"
+                                    id="phone"
+                                    placeholder="Enter your Phone number"
                                 />
                             </div>
                             <div className="my-3">
                                 <p>Already has an account? <Link to="/login" className="text-decoration-underline text-info">Login</Link> </p>
                             </div>
                             <div className="text-center">
-                                <button class="my-2 mx-auto btn btn-dark" type="submit" disabled>
+                                <button class="my-2 mx-auto btn login_btn" type="submit" >
                                     Register
                                 </button>
                             </div>

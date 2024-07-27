@@ -81,7 +81,7 @@ const Cart = () => {
 
                             <div className="col-lg-4 col-md-6">
                               <div
-                                className="d-flex mb-4"
+                                className="d-flex "
                                 style={{ maxWidth: "300px" }}
                               >
                                 <button
@@ -93,10 +93,10 @@ const Cart = () => {
                                   <i className="fas fa-minus"></i>
                                 </button>
 
-                                <p className="mx-5">{item.qty}</p>
+                                <p className="m-4">{item.qty}</p>
 
                                 <button
-                                  className="btn px-3"
+                                  className="btn m-3"
                                   onClick={() => {
                                     addItem(item);
                                   }}

@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { Footer, Navbar } from "../components";
+import "../Style/index.css";
 
 const Login = () => {
   return (
@@ -11,7 +12,7 @@ const Login = () => {
         <hr />
         <div class="row my-4 h-100">
           <div className="col-md-4 col-lg-4 col-sm-8 mx-auto">
-            <form>
+            <form className="bg-light p-4 rounded">
               <div class="my-3">
                 <label for="display-4">Email address</label>
                 <input
@@ -34,7 +35,7 @@ const Login = () => {
                 <p>New Here? <Link to="/register" className="text-decoration-underline text-info">Register</Link> </p>
               </div>
               <div className="text-center">
-                <button class="my-2 mx-auto btn btn-dark" type="submit" disabled>
+                <button class="mt-3 mx-auto btn login_btn col-3" type="submit" >
                   Login
                 </button>
               </div>
