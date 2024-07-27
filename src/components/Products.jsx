@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useDispatch } from "react-redux";
 import { addCart } from "../redux/action";
 import Skeleton from "react-loading-skeleton";
@@ -8,9 +8,9 @@ import "../Style/index.css";
 
 const Products = () => {
   const [data, setData] = useState([]);
-  const [filter, setFilter] = useState(data);
+  const [filter, setFilter] = useState([]);
   const [loading, setLoading] = useState(false);
-  let componentMounted = true;
+  const componentMounted = useRef(true);
 
   const dispatch = useDispatch();
 
@@ -20,17 +20,19 @@ const Products = () => {
     const getProducts = async () => {
       setLoading(true);
       const response = await fetch("https://fakestoreapi.com/products/");
-      if (componentMounted) {
-        setData(await response.clone().json());
-        setFilter(await response.json());
+      if (componentMounted.current) {
+        const products = await response.json();
+        setData(products);
+        setFilter(products);
         setLoading(false);
       }
-      return () => {
-        componentMounted = false;
-      };
     };
 
     getProducts();
+
+    return () => {
+      componentMounted.current = false;
+    };
   }, []);
 
   const Loading = () => {
